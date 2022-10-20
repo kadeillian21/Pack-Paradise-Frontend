@@ -6,7 +6,7 @@ export function ProductsIndex(props) {
       {props.products.map((product) => (
         <div className="products" key={product.id}>
           <h2>{product.name}</h2>
-          <img src={product.image}></img>
+          <img src={product.images[0]}></img>
           <p>{product.description}</p>
           <button onClick={() => props.onSelectProduct(product)}>More info</button>
         </div>
