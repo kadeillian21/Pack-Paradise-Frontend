@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
+import { Signup } from "./Signup";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -29,7 +30,8 @@ export function Home() {
   useEffect(handleIndexProducts, []);
 
   return (
-    <div>
+    <div className="container">
+      <Signup />
       <ProductsNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProudct}>
