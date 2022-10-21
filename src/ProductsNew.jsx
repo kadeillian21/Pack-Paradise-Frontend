@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export function ProductsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
