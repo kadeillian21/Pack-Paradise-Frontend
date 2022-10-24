@@ -1,20 +1,23 @@
-import axios from "axios";
-
 export function ProductsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    axios.patch("http://localhost:3000/products/" + props.product.id + ".json", params).then((response) => {
-      console.log(response.data);
-      event.target.reset();
-    });
+    props.onUpdateProduct(props.product.id, params);
+    event.target.reset();
   };
+
+  const handleClick = () => {
+    props.onDestroyProduct(props.product);
+  };
+
   return (
     <div id="products-show">
       <h1>Product Info</h1>
       <h2>{props.product.name}</h2>
       <p>Price: ${props.product.price}</p>
       <p>Description: {props.product.description}</p>
+
+      <button onClick={handleClick}>Destroy Product</button>
 
       <h2>Update Product</h2>
       <form onSubmit={handleSubmit}>
