@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export function Signup(props) {
   const [errors, setErrors] = useState([]);
+  const [name, setName] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -31,8 +32,9 @@ export function Signup(props) {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Name: <input name="name" type="text" />
+          Name: <input name="name" type="text" value={name} onChange={(event) => setName(event.target.value)} />
         </div>
+        <small>{20 - name.length} characters remaining</small>
         <div>
           Email: <input name="email" type="email" />
         </div>
