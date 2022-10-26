@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
-import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 
@@ -64,9 +63,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
-      <LogoutLink />
       <ProductsNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
