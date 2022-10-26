@@ -1,11 +1,8 @@
 import { ProductsIndex } from "./ProductsIndex";
-import { ProductsNew } from "./ProductsNew";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
-import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -26,13 +23,6 @@ export function Home() {
 
   const handleHideProduct = () => {
     setIsProductsShowVisible(false);
-  };
-
-  const handleCreateProduct = (params) => {
-    axios.post("http://localhost:3000/products.json", params).then((response) => {
-      const newProduct = response.data;
-      setProducts([...products, newProduct]);
-    });
   };
 
   const handleUpdateProduct = (id, params) => {
@@ -63,7 +53,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <ProductsNew onCreateProduct={handleCreateProduct} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow

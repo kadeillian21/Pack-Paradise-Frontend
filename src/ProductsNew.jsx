@@ -1,10 +1,19 @@
+import axios from "axios";
+
 export function ProductsNew(props) {
+  const handleCreateProduct = (params) => {
+    axios.post("http://localhost:3000/products.json", params).then((response) => {
+      const newProduct = response.data;
+      console.log("Created Product", newProduct);
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Create Product");
     const params = new FormData(event.target);
-    props.onCreateProduct(params);
-    event.target.reset();
+    handleCreateProduct(params);
+    event.target.reset;
   };
 
   return (

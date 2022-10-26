@@ -49,9 +49,9 @@ export function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/">
+                  <Link className="dropdown-item" to="/products/new">
                     New Product
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
