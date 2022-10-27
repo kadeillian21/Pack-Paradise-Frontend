@@ -6,3 +6,6 @@ html {
   scroll-behavior: smooth;
 }
 
+#products-show img {
+  height: 300px;
+}
